@@ -31,8 +31,8 @@ app.listen(3000)
 /* Fired repeatedly while the node is Offline or Errored, in an attempt to reconnect and verify node health */
 function checkRPC () {
   RPC.call('getblockcount').then(blocks => {
-    console.log("RPC Response: " + blocks + ", Node status changed to " + node.status)
     node.status = "online"
+    console.log("RPC Response: " + blocks + ", Node status changed to " + node.status)
     updateRPC()
   }).catch(rpcError)
 }
@@ -46,6 +46,7 @@ function updateRPC () {
       node.blocks = blocks
       RPC.call('getconnectioncount').then(conns => {
         node.peers = conns
+        console.log("RPC Updated: " + blocks + " blocks and " + conns + " peers")
       }).catch(rpcError)
     }).catch(rpcError)
   }
