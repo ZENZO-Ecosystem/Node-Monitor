@@ -5,16 +5,16 @@ const app = express()
 
 /* Declare local variables */
 const auth = {
-  user = "user",
-  pass = "pass",
-  host = "localhost", /* Default Recommended */
-  port = 26211
+  user: "user",
+  pass: "pass",
+  host: "localhost", /* Default Recommended */
+  port: 26211
 }
 
 let node = {
-  status = "offline",
-  blocks = 0,
-  peers = 0
+  status: "offline",
+  blocks: 0,
+  peers: 0
 }
 
 /* Initialize RPC connection */
